@@ -1,0 +1,15 @@
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+PORT = 8080
+
+class RequestHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header("Content-type", "text/plain")
+        self.end_headers()
+        self.wfile.write(b"Hello from container!")
+
+if __name__ == "__main__":
+    server = HTTPServer(("", PORT), RequestHandler)
+    print(f"Server running on port {PORT}...")
+    server.serve_forever()
