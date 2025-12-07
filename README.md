@@ -1,2 +1,2 @@
-# python-hello1
-простий застосунок
+hello
+curl http://localhost:8080
